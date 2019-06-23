@@ -1,0 +1,58 @@
+nc readme.ctfcompetition.com 1337
+
+wireshark shows :
+
+.[H.[J
+******************************************
+ ****ALIEN SHELL****
+******************************************
+USER is: @(null)
+.[H.[J> 
+
+Which led me down to google alien shell for any ideas but all i could find was a dead link on sourceforge for “alien shell” took a look at the URL in wayback machine and didn't find anything useful
+
+Flag apprears to be evident but there is no ‘cat, strings, xxd’ command available. I tried echo, printf, watch but i wasn't able to get any to work. 
+
+> ls -la
+total 12
+drwxrwxrwt    2 0        0               80 Jun 23 19:07 .
+drwxr-xr-x   20 0        0             4096 Jun 13 14:28 ..
+----------    1 1338     1338            33 Jun 23 19:07 ORME.flag
+-r--------    1 1338     1338            28 Jun 23 19:07 README.flag
+> 
+
+
+ls /bin to see what commands are available after googling determines that tar can extract to stdout which should do the trick
+
+> tar -O README.flag
+BusyBox v1.29.3 (2019-01-24 07:45:07 UTC) multi-call binary.
+
+Usage: tar c|x|t [-ZzJjahmvokO] [-f TARFILE] [-C DIR] [-T FILE] [-X FILE] [--exclude PATTERN]... [FILE]...
+
+Create, extract, or list files from a tar file
+
+	c	Create
+	x	Extract
+	t	List
+	-f FILE	Name of TARFILE ('-' for stdin/out)
+	-C DIR	Change to DIR before operation
+	-v	Verbose
+	-O	Extract to stdout
+	-m	Don't restore mtime
+	-o	Don't restore user:group
+	-k	Don't replace existing files
+	-Z	(De)compress using compress
+	-z	(De)compress using gzip
+	-J	(De)compress using xz
+	-j	(De)compress using bzip2
+	-a	(De)compress using lzma
+	-h	Follow symlinks
+	-T FILE	File with names to include
+	-X FILE	File with glob patterns to exclude
+	--exclude PATTERN	Glob pattern to exclude
+> ls
+ORME.flag
+README.flag
+> tar c -v README.flag
+README.flag0000400000247200024720000000003413503753057010423 0ustar  13381338README.flag
+CTF{4ll_D474_5h4ll_B3_Fr33}
