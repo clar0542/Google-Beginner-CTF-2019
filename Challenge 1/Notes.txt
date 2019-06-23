@@ -1,0 +1,4 @@
+binwalk -e filename
+strings rand2 | grep CTF
+
+CTF{welcome_to_googlectf}
