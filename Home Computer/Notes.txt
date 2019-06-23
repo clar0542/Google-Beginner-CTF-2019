@@ -1,0 +1,37 @@
+Mounted the image with the built in image mounter in Kali. I did this in the gui but can be done via command line with the proper mount command
+
+After navigating around there is a credentials.txt file in Documents
+
+/media/root/Family/Users/Family/Documents# cat credentials.txt 
+I keep pictures of my credentials in extended attributes.
+
+
+I noticed credentials.txt seemed to be the only non 0 byte file so if figured i'd look for others. 
+/media/root/Family# find . -type f -not -empty -ls
+    13288      1 -rwxrwxrwx   1 root     root           58 Jun 12 20:38 ./Users/Family/Documents/credentials.txt
+Only 1 file returned.
+
+Googled to find out how to access extended attributes. Found some Mitre pages and Zeroaccess malware
+
+Tried exiftool, strings and xxd but didn't find anything
+Googled and found 
+https://unix.stackexchange.com/questions/300168/how-do-i-get-a-dump-of-all-extended-attributes-for-a-file
+
+
+getfattr -d -m - credentials.txt > /root/Documents/EAcreds
+
+
+I put the output into cyber chef with the “magic” recipe and deleted the "user.FILE0=0" which showed the output matching the input i then deleted 1 char at a time until  the output returned something different.
+
+From_Base64('A-Za-z0-9+/=',true)
+Render_Image('Raw')
+
+.PNG........IHDR...Ò...S.....s¹¶^....sBIT...ÛáOà....tEXtSoftware.gnome-screenshotï.¿>.. .IDATx.ì...	File type: image/png (png)
+
+Matching ops: Render Image
+Useful op detected
+Entropy: 7.89
+
+I clicked use this recipe and it desplayed the image containing the flag
+
+CTF{congratsyoufoundmycreds}
