@@ -1,0 +1,27 @@
+binwalk -e
+
+chmod +x init_sat
+
+sat name= osmium
+a to show data lists 
+
+https://docs.google.com/document/d/14eYPluD_pi3824GAFanS29tWdTcKxP_XUxx7e303-3E/edit
+
+TG9naW5zIGZvciBob21lIGFuZCB3b3JrIGNvbXB1dGVyOgpVc2VybmFtZTogd2Vib3J0dG8KUGFzc3dvcmQ6IHRvdGFsbHktbm90LWEtZmxhZy1rZWVwLXNuaWZmaW5nCg==
+
+decodes to:
+
+Logins for home and work computer:
+Username: webortto
+Password: totally-not-a-flag-keep-sniffing
+
+
+Welcome. Enter (a) to display config data, (b) to erase all data or (c) to disconnect
+
+
+a
+
+README says : Is the communication with the satellite really as secure as those humans always claim?
+
+Wireshark and run theough the tool ....flag is password
+Username: brewtoot password: CTF{4efcc72090af28fd33a2118985541f92e793477f} 166.00 IS-19 2019/05/09 00:00:00 Swath 640km Revisit capacity twice daily, anywhere Resolution panchromatic: 30cm multispectral: 1.2m Daily acquisition capacity: 220,000km.. Remaining config data written to: https://docs.google.com/document/d/14eYPluD_pi3824GAFanS29tWdTcKxP_XUxx7e303-3E
