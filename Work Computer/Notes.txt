@@ -22,7 +22,7 @@ drwxr-xr-x   20 0        0             4096 Jun 13 14:28 ..
 > 
 
 
-ls /bin to see what commands are available after googling determines that tar can extract to stdout which should do the trick
+ls /bin to see what commands are available after googling determines that tar can extract to stdout which should do the trick but verbose is what i ended up using
 
 > tar -O README.flag
 BusyBox v1.29.3 (2019-01-24 07:45:07 UTC) multi-call binary.
