@@ -1,0 +1,22 @@
+https://capturetheflag.withgoogle.com/#beginners/pwn-buffer-overflow-2
+
+So they're hinting at buffer overflow
+
+buffer-overflow.ctfcompetition.com 1337
+
+found this video https://www.youtube.com/watch?v=YVlTDPhTA9U and tried basic buffer overflow with A's 
+
+nc buffer-overflow.ctfcompetition.com 1337
+run
+AAAAAAAAAAAAAAAAAA
+
+
+I used python -c "print 'A'*30" and incremented the # of A's until it crashed. 
+
+I didn't get the bonus flag. 
+
+I think the challenge is hinting at using pwn tools to do this. I might go back and see if i can do it that way for fun.
+
+
+
+
